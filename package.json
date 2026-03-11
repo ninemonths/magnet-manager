@@ -1,0 +1,61 @@
+{
+  "name": "magnet-manager",
+  "version": "1.0.0",
+  "description": "鸿蒙操作系统的磁力链接跳转软件，兼容手机和平板",
+  "keywords": [
+    "harmonyos",
+    "magnet",
+    "torrent",
+    "download",
+    "mobile",
+    "tablet"
+  ],
+  "author": "九月 <xingyingyaoyao@github.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/ninemonths/magnet-manager",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ninemonths/magnet-manager.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ninemonths/magnet-manager/issues"
+  },
+  "scripts": {
+    "dev": "hdc shell aa start -a EntryAbility -b com.ninemonths.magnetmanager",
+    "build:debug": "npm run build && hdc shell bm install -p entry/build/default/outputs/default/entry-default-unsigned.hap",
+    "build:release": "npm run build -- --mode release",
+    "build": "build-tool --project-dir . --build-mode default --log-level=info",
+    "clean": "rm -rf entry/build outputs",
+    "test": "npm run test:unit",
+    "test:unit": "test-runner --project-dir . --test-type ut",
+    "lint": "eslint . --ext .ets,.ts",
+    "format": "prettier --write \"**/*.{ets,ts,js,json,md}\""
+  },
+  "devDependencies": {
+    "@ohos/hypium": "^1.0.0",
+    "@types/node": "^18.0.0",
+    "eslint": "^8.0.0",
+    "prettier": "^3.0.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "harmonyos": ">=4.0.0"
+  },
+  "harmony": {
+    "bundleName": "com.ninemonths.magnetmanager",
+    "vendor": "ninemonths",
+    "versionCode": 1,
+    "versionName": "1.0.0",
+    "minAPIVersion": 10,
+    "targetAPIVersion": 10,
+    "compileSdkVersion": "4.0.0.0",
+    "compileSdkType": "HarmonyOS",
+    "appEnvironments": [
+      {
+        "default": true,
+        "runtimeOS": "HarmonyOS"
+      }
+    ]
+  }
+}
