@@ -22,14 +22,18 @@
   },
   "scripts": {
     "dev": "hdc shell aa start -a EntryAbility -b com.ninemonths.magnetmanager",
-    "build:debug": "npm run build && hdc shell bm install -p entry/build/default/outputs/default/entry-default-unsigned.hap",
+    "build:debug": "npm run build -- --mode debug",
     "build:release": "npm run build -- --mode release",
-    "build": "build-tool --project-dir . --build-mode default --log-level=info",
+    "build": "hvigorw --mode module -p module=entry assembleHap --parallel",
     "clean": "rm -rf entry/build outputs",
     "test": "npm run test:unit",
-    "test:unit": "test-runner --project-dir . --test-type ut",
+    "test:unit": "hvigorw --mode module -p module=entry test --parallel",
     "lint": "eslint . --ext .ets,.ts",
-    "format": "prettier --write \"**/*.{ets,ts,js,json,md}\""
+    "format": "prettier --write \"**/*.{ets,ts,js,json,md}\"",
+    "hap": "./scripts/build_hap.sh",
+    "install": "hdc install outputs/default/entry-default-signed.hap",
+    "uninstall": "hdc uninstall com.ninemonths.magnetmanager",
+    "log": "hdc shell hilog | grep MagnetManager"
   },
   "devDependencies": {
     "@ohos/hypium": "^1.0.0",

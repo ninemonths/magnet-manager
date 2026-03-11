@@ -1,0 +1,35 @@
+{
+  "app": {
+    "signingConfigs": [],
+    "products": [
+      {
+        "name": "default",
+        "signingConfig": "default",
+        "compileSdkVersion": "4.0.0.0",
+        "compatibleSdkVersion": "4.0.0.0",
+        "runtimeOS": "HarmonyOS"
+      },
+      {
+        "name": "ohosTest",
+        "signingConfig": "default",
+        "compileSdkVersion": "4.0.0.0",
+        "compatibleSdkVersion": "4.0.0.0",
+        "testRunner": "hypium"
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "entry",
+      "srcPath": "./entry",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    }
+  ]
+}
